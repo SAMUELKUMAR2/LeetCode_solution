@@ -1,0 +1,31 @@
+class Solution {
+    public String capitalizeTitle(String title) {
+        StringBuilder sb = new StringBuilder();
+        
+        String str[] = title.split(" ");
+        
+        for(int i =0;i<str.length;i++){
+            for(int j =0;j<str[i].length();j++){
+                char ch =str[i].charAt(j);
+                
+                if(str[i].length()<3 && ch>=65 && ch<=90){
+                    ch = (char)(ch+32);
+                }else{
+                     if(str[i].length()>=3){
+                    if(j==0 && ch>=97 && ch<=122){
+                      ch = (char)(ch-32);  
+                    }
+                    else{
+                        if(j>0 && ch>=65 && ch<=90){
+                            ch = (char)(ch+32);
+                        }
+                    }
+                }
+                }
+                sb.append(ch);
+            }
+            sb.append(" ");
+        }
+        return sb.toString().trim();
+    }
+}
